@@ -19,7 +19,7 @@ jobs:
     - name: "install node"
       run: |
         wget -O install-node.sh https://deb.nodesource.com/setup_12.x
-        bash install-node.sh
+        sudo bash install-node.sh
         sudo apt-get install -y nodejs
         npm install
     - name: "install vessel"
