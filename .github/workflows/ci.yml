@@ -12,14 +12,14 @@ jobs:
     - name: "install dfx"
       run: |
         wget -O install-dfx.sh https://sdk.dfinity.org/install.sh
-        yes Y | DFX_VERSION=0.5.11 sh install-dfx.sh
+        yes Y | DFX_VERSION=0.5.11 bash install-dfx.sh
         echo "::add-path::/home/runner/bin"
     - name: "install dfx cache"
       run: dfx cache install
     - name: "install node"
       run: |
         wget -O install-node.sh https://deb.nodesource.com/setup_12.x
-        sh install-node.sh
+        bash install-node.sh
         sudo apt-get install -y nodejs
         npm install
     - name: "install vessel"
