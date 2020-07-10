@@ -15,6 +15,7 @@ dfx start
 Execute the following commands in another tab.
 
 ```
+dfx canister create --all
 dfx build
 dfx canister install --all
 open "http://127.0.0.1:8000/?canisterId=$(dfx canister id www)"
