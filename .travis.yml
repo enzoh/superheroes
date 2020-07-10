@@ -1,0 +1,19 @@
+dist: bionic
+install:
+- travis_retry wget -O install-dfinity.sh "https://sdk.dfinity.org/install.sh"
+- yes Y | DFX_VERSION=0.5.11 sh install-dfinity.sh
+- dfx cache install
+- travis_retry wget -O install-node.sh "https://deb.nodesource.com/setup_12.x"
+- sudo sh install-node.sh
+- travis_retry sudo apt-get install -y nodejs
+- npm install
+script:
+- dfx start &
+- sleep 5
+- dfx build
+- dfx canister install --all
+- dfx canister call superheroes create '(record {name = "Superman"; superpowers = opt record { 0 = "invulnerability"; 1 = opt record { 0 = "superhuman strength"; 1 = null; }; }; })'
+- dfx canister call superheroes read '(0)'
+- dfx canister call superheroes update '(0, record {name = "Superman"; superpowers = opt record { 0 = "invulnerability"; 1 = opt record { 0 = "superhuman strength"; 1 = opt record { 0 = "flight"; 1 = opt record { 0 = "x-ray vision"; 1 = null; }; }; }; }; })'
+- dfx canister call superheroes delete '(0)'
+- dfx canister call www retrieve '("index.js")'

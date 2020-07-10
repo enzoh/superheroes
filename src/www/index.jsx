@@ -1,0 +1,39 @@
+/**
+ * Module     : index.jsx
+ * Copyright  : Enzo Haussecker
+ * License    : Apache 2.0 with LLVM Exception
+ * Maintainer : Enzo Haussecker <enzo@dfinity.org>
+ * Stability  : Stable
+ */
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import Create from './components/create.jsx';
+import Read from './components/read.jsx';
+import Update from './components/update.jsx';
+import Delete from './components/delete.jsx';
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <h1>Superheroes</h1>
+        <p>A simple example that demonstrates how to build a <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> application on the Internet Computer using Motoko and React.</p>
+        <hr/>
+        <Create/>
+        <hr/>
+        <Read/>
+        <hr/>
+        <Update/>
+        <hr/>
+        <Delete/>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+ReactDOM.render(<App/>, document.getElementById('app'));
