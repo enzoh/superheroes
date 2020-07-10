@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/enzoh/superheroes/workflows/build/badge.svg)](https://github.com/enzoh/superheroes/actions?query=workflow%3Abuild)
 
-A simple example that demonstrates how to build a [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application on the Internet Computer using Motoko and React. 
+A simple example that demonstrates how to build a [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application on the [Internet Computer](https://dfinity.org) using [Motoko](https://sdk.dfinity.org/docs/language-guide/motoko.html) and [React](https://reactjs.org). 
 
 ### Demo
 
