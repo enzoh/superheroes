@@ -5,8 +5,8 @@ on:
       - master
   pull_request:
 jobs:
-  tests:
-    runs-on: ubuntu-18.04
+  main:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
     - name: "install dfx"
