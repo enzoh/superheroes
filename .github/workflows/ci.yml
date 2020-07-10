@@ -1,0 +1,30 @@
+name: "build"
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+  tests:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: "install dfx"
+      run: |
+        wget -O install-dfx.sh https://sdk.dfinity.org/install.sh
+        yes Y | DFX_VERSION=0.5.11 sh install-dfx.sh
+        echo "::add-path::/home/runner/bin"
+    - name: "install dfx cache"
+      run: dfx cache install
+    - name: "install node"
+      run: |
+        wget -O install-node.sh https://deb.nodesource.com/setup_12.x
+        sh install-node.sh
+        sudo apt-get install -y nodejs
+        npm install
+    - name: "install vessel"
+      run: |
+        wget -O /home/runner/bin/vessel https://github.com/kritzcreek/vessel/releases/download/v0.4.1/vessel-linux64
+        chmod +x /home/runner/bin/vessel
+    - name: "run"
+      run: ./run.sh
