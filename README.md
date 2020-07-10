@@ -4,6 +4,12 @@
 
 A simple example that demonstrates how to build a [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application on the [Internet Computer](https://dfinity.org) using [Motoko](https://sdk.dfinity.org/docs/language-guide/motoko.html) and [React](https://reactjs.org). 
 
+### Prerequisites
+
+- [DFINITY SDK](https://sdk.dfinity.org/docs/download.html) v0.5.11
+- [Node.js](https://nodejs.org/download/release/latest-v12.x) v12.x
+- [Vessel](https://github.com/kritzcreek/vessel/releases/tag/v0.4.1) v0.4.1 (Optional)
+
 ### Demo
 
 Start a local internet computer.
