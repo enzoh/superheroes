@@ -10,7 +10,7 @@ install:
 script:
 - dfx start &
 - sleep 5
-- dfx canister create
+- dfx canister create --all
 - dfx build
 - dfx canister install --all
 - dfx canister call superheroes create '(record {name = "Superman"; superpowers = opt record { 0 = "invulnerability"; 1 = opt record { 0 = "superhuman strength"; 1 = null; }; }; })'
