@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Superheroes</h1>
-        <p>A simple example that demonstrates how to build a <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> application on the <a href="https://dfinity.org">Internet Computer</a> using <a href="https://sdk.dfinity.org/docs/language-guide/motoko.html">Motoko</a> and <a href="https://reactjs.org">React</a>.
+        <p>A simple example that demonstrates how to build a <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> application on the <a href="https://dfinity.org">Internet Computer</a> using <a href="https://sdk.dfinity.org/docs/language-guide/motoko.html">Motoko</a> and <a href="https://reactjs.org">React</a>.</p>
         <hr/>
         <Create/>
         <hr/>
