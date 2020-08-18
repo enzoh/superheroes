@@ -14,15 +14,27 @@ const output = ["defaults", "build", "output"].reduce((accum, x) => {
   return accum && accum[x] ? accum[x] : null;
 }, Config) || "build";
 
-// Identify canisters aliases.
-const aliases = Object.entries(Config.canisters).reduce((accum, [name,]) => {
-  const outputRoot = Path.join(__dirname, output, name);
-  return {
-    ...accum,
-    ["ic:canisters/" + name]: Path.join(outputRoot, name + ".js"),
-    ["ic:idl/" + name]: Path.join(outputRoot, name + ".did.js"),
-  };
-}, {});
+
+const aliases = Object.entries(Config.canisters).reduce(
+  (acc, [name, _value]) => {
+    // Get the network name, or `local` by default.
+    const networkName = process.env["DFX_NETWORK"] || "local";
+    const outputRoot = Path.join(
+      __dirname,
+      ".dfx",
+      networkName,
+      "canisters",
+      name
+    );
+
+    return {
+      ...acc,
+      ["ic:canisters/" + name]: Path.join(outputRoot, name + ".js"),
+      ["ic:idl/" + name]: Path.join(outputRoot, name + ".did.js"),
+    };
+  },
+  {}
+);
 
 // Generate webpack configuration.
 const generate = (name, info) => {
@@ -32,8 +44,11 @@ const generate = (name, info) => {
   const inputRoot = __dirname;
   const outputRoot = Path.join(__dirname, output, name);
   return {
-    entry: Path.join(inputRoot, info.frontend.entrypoint),
+    entry: {
+      index:  Path.join(inputRoot, info.frontend.entrypoint),
+    },
     mode: "production",
+    devtool: "source-map",
     module: {
       rules: [
         {
@@ -58,8 +73,7 @@ const generate = (name, info) => {
   };
 };
 
-module.exports = [
-  ...Object.entries(Config.canisters).map(([name, info]) => {
-    return generate(name, info);
-  }).filter(x => !!x),
-];
+
+module.exports = [...Object.entries(Config.canisters).map(([name, info]) => {
+  return generate(name, info);
+}).filter(x => !!x)];
