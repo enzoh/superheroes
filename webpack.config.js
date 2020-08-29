@@ -12,7 +12,7 @@ const Path = require("path");
 // Identify build output directory.
 const output = ["defaults", "build", "output"].reduce((accum, x) => {
   return accum && accum[x] ? accum[x] : null;
-}, Config) || "build";
+}, Config) || Path.join(".dfx", "local", "canisters");
 
 // Identify canisters aliases.
 const aliases = Object.entries(Config.canisters).reduce((accum, [name,]) => {
