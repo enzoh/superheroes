@@ -6,7 +6,7 @@ A simple example that demonstrates how to build a [CRUD](https://en.wikipedia.or
 
 ### Prerequisites
 
-- [DFINITY SDK](https://sdk.dfinity.org/docs/download.html) v0.5.11
+- [DFINITY SDK](https://sdk.dfinity.org/docs/download.html) v0.6.4
 - [Node.js](https://nodejs.org/download/release/latest-v12.x) v12.x
 - [Vessel](https://github.com/kritzcreek/vessel/releases/tag/v0.4.1) v0.4.1 (Optional)
 
